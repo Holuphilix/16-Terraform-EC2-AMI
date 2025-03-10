@@ -155,7 +155,8 @@ resource "aws_instance" "additional_instance" {
   tags = {
     Name = "Additional_Instance"
   }
-}```
+}
+```
 
 ## Usage
 
