@@ -130,6 +130,33 @@ resource "aws_ami_from_instance" "my_ami" {
 }
 ```
 
+#### 🛠 **Experimenting with Terraform Configuration**
+
+- To Modify your Terraform setup,
+
+- Change the EC2 instance type
+
+- Add additional resources (e.g., more EC2 instances, S3 bucket, IAM roles, etc.)
+
+- Modify existing configurations (e.g., security group rules)
+
+🔹**Change the EC2 Instance Type**
+
+I modified my instance type from t2 micro to t2 small, and added another EC2 instance in my main.tf:
+
+```hcl
+resource "aws_instance" "additional_instance" {
+  ami                    = "ami-014d544cfef21b42d"  # Replace with a valid AMI ID for us-east-1
+  instance_type          = "t2.small"
+  key_name               = aws_key_pair.terraform_key.key_name # Use the created key pair
+  vpc_security_group_ids = [aws_security_group.ssh_sec_group.id]
+  associate_public_ip_address = true
+
+  tags = {
+    Name = "Additional_Instance"
+  }
+}```
+
 ## Usage
 
 To execute the Terraform configuration, follow these steps:
