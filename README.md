@@ -1,4 +1,4 @@
-# Terraform Project: EC2 Instance and AMI Automation
+# Terraform Mini Project: EC2 Instance and AMI Automation
 
 ## Overview
 
